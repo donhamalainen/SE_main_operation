@@ -44,12 +44,29 @@ def generate_github_links(project_name):
     return github_link
 
 
+# Fetching the clone of github repositories from CSV github link
+def fetch_github_repo_clone(input, output):
+    # First read the CSV
+    print("Parsing the CSV...")
+    unique_projects = read_csv(input, output)
+    print("Finished")
+    print(f"Total unique projects: {len(unique_projects)}")
+
+    with open(output, "r", encoding="utf8") as github_links:
+        csv_reader = csv.reader(github_links)
+        count = 0
+        for links in csv_reader:
+            count += 1
+            print(links[2])
+      
+
 # Defining main function
 def main():
     input_file = "sonar_measures.csv"
     output_file = "parsed.csv"
-    read_csv(input_file, output_file)
-    print("Done")
+    fetch_github_repo_clone(input_file, output_file)
+
+
     
 
 # Using the special variable 
