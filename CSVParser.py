@@ -83,7 +83,7 @@ def fetch_github_repo_clone(output, clone_root_dir, unique_projects_count):
 
         print(f"\nSuccessfully cloned {succeed}/{total_links}")
         if(failed > 0):
-            print(f"\Failed cloned {failed}/{total_links}")
+            print(f"Failed cloned {failed}/{total_links}")
     except FileNotFoundError:
         print(f"\nFile {output} not found!")
 # Defining main function
